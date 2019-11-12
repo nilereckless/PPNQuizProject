@@ -5,8 +5,8 @@
  */
 package PPN.Servlet;
 
-import PPN.Controller.StudentsController;
-import PPN.Model.Student;
+import PPN.Controller.TeachersController;
+import PPN.Model.Teacher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author theeradonjaroonchon
  */
-public class RegisterServlet extends HttpServlet {
+public class TRegisterServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,37 +31,36 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
+        String tid = request.getParameter("id");
         String username = request.getParameter("username");
+        String lastname = request.getParameter("password");
         String password = request.getParameter("password");
-        String lastname = request.getParameter("lastname");
+        String subject  = request.getParameter("ownerSubject");
         String department = request.getParameter("department");
-        String message = null;
+        String message  = null;
         
-        if(id.trim().isEmpty()||username.trim().isEmpty()||password.trim().isEmpty()||lastname.trim().isEmpty()
-          ||department.trim().isEmpty()){
-            message="Please Enter All your Information!";
+        if(tid.trim().isEmpty()||username.trim().isEmpty()||lastname.trim().isEmpty()||password.trim().isEmpty()
+                ||subject.trim().isEmpty()||department.trim().isEmpty()){
+            message="Please enter your Information All!";
             request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/WEB-INF/Register.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/TRegister.jsp").forward(request, response);
         }
         
-        long sid = Long.valueOf(id);
+        long idt = Long.valueOf(tid);
+        TeachersController tc = new TeachersController();
+        Teacher t = tc.getTeacherById(idt);
         
-        StudentsController sc = new StudentsController();
-        Student s = sc.getStudentById(sid);
-        
-        if(s!=null){
-            message="Sorry, This ID has registed";
+        if(t!=null){
+            message="Sorry,This ID has already Registed";
             request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/WEB-INF/Register.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/TRegister.jsp").forward(request, response);
         }else{
-            Student news = new Student(sid, username, lastname, password, department);
-           sc.addStudent(news);
-           message="Congratulation, You register Success!";
-           request.setAttribute("message", message);
-           getServletContext().getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);          
+            Teacher newt = new Teacher(idt, username, lastname, password, subject, department);
+            tc.addTeacher(newt);
+            message="Congratulation, Your Register success!";
+            request.setAttribute("message", message);
+            getServletContext().getRequestDispatcher("/TLogin.jsp").forward(request, response);
         }
-        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

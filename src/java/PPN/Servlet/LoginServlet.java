@@ -32,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         String message = null;
         
         if (id.trim().isEmpty() || password.trim().isEmpty()) {
-            message = "Please enter your Username or Password";
+            message = "Please enter your ID or Password";
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         }
@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
                 request.setAttribute("message", message);
             }           
         }
-        message = "Username or Password is Incorrect";
+        message = "ID or Password is Incorrect";
         request.setAttribute("message", message);
         getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);
         
@@ -70,6 +70,7 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         processRequest(request, response);
     }
 

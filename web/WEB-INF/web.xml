@@ -16,6 +16,18 @@
         <servlet-name>LogoutServlet</servlet-name>
         <servlet-class>PPN.Servlet.LogoutServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>HomeServlet</servlet-name>
+        <servlet-class>PPN.Servlet.HomeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TRegisterServlet</servlet-name>
+        <servlet-class>PPN.Servlet.TRegisterServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>TLoginServlet</servlet-name>
+        <servlet-class>PPN.Servlet.TLoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -27,6 +39,18 @@
     <servlet-mapping>
         <servlet-name>LogoutServlet</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HomeServlet</servlet-name>
+        <url-pattern>/Home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TRegisterServlet</servlet-name>
+        <url-pattern>/TRegister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>TLoginServlet</servlet-name>
+        <url-pattern>/TLogin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -9,14 +9,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
+        <title>PPN Quiz</title>
+    </head>  
+    <center><body>
         <h1>PPN Quiz</h1>
+        <h2><a href="TLogin.jsp">PPN Quiz For Teacher</a></h2>
         <h2>${message}</h2>
         <hr>
         <form action="Login" method="post">
-            Id : <input type="text" name="id"> 
+            StudentID : <input type="text" name="id"> 
             <br><br>
             Password : <input type="password" name="password">
             <br><br>
@@ -25,5 +26,5 @@
           
         </form>
          <a href="Register.jsp">Register</a>
-    </body>
+        </body></center>
 </html>
