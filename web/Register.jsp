@@ -16,10 +16,11 @@
         <h2>${message}</h2>
         <hr>
         <form action="Register" method="post">
-            StudentID : <input type="text" name="id"><br><br>
+            StudentID : <input type="text" name="id" maxlength="13"><br><br>
             Firstname : <input type="text" name="username"><br><br>
             Lastname : <input type="text" name="lastname"><br><br>
-            Password : <input type="password" name="password"><br><br>      
+            Password : <input type="password" name="password"><br><br>
+            Student Year : <input type="number" name="year"><br><br>
             Department : <br><br>
             <input type="radio" name="department" value="Information Technology">Information Technology<br><br> 
             <input type="radio" name="department" value="Computer Science">Computer Science<br><br>

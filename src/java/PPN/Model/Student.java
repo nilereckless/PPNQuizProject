@@ -11,23 +11,25 @@ package PPN.Model;
  */
 public class Student {
     private long id;
-    private String username ;
-    private String lastname;
+    private String fullname ;
     private String password;
+    private String syear;
     private String department;
+    private String email;
     
     public Student(){
         
     }
 
-    public Student(long id, String username, String lastname, String password, String department) {
+    public Student(long id, String fullname, String password, String syear, String department, String email) {
         this.id = id;
-        this.username = username;
-        this.lastname = lastname;
+        this.fullname = fullname;
         this.password = password;
+        this.syear = syear;
         this.department = department;
+        this.email = email;
     }
-    
+
     public long getId() {
         return id;
     }
@@ -36,20 +38,12 @@ public class Student {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getPassword() {
@@ -60,6 +54,14 @@ public class Student {
         this.password = password;
     }
 
+    public String getSyear() {
+        return syear;
+    }
+
+    public void setSyear(String syear) {
+        this.syear = syear;
+    }
+
     public String getDepartment() {
         return department;
     }
@@ -68,13 +70,19 @@ public class Student {
         this.department = department;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", username=" + username + ", lastname=" + lastname + ", password=" + password + ", department=" + department + '}';
+        return "Student{" + "id=" + id + ", fullname=" + fullname + ", password=" + password + ", syear=" + syear + ", department=" + department + ", email=" + email + '}';
     }
-    
-    
-    
+
     
     
  

@@ -27,11 +27,11 @@ public class TeachersController {
     public Teacher getTeacherByUsername(String username) {
         conn = BuildConnection.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM teachers WHERE Lower(fname) = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM teachers WHERE Lower(fullname) = ?");
             ps.setString(1, username.toLowerCase());
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Teacher(rs.getLong("id"), rs.getString("fname"), rs.getString("lname"), rs.getString("password"), rs.getString("ownerSubject"), rs.getString("department"));
+                return new Teacher(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("ownerSubject"), rs.getString("department"), rs.getString("email"));
             }
             rs.close();
             conn.close();
@@ -48,7 +48,7 @@ public class TeachersController {
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Teacher(rs.getLong("id"), rs.getString("fname"), rs.getString("lname"), rs.getString("password"), rs.getString("owner_Subject"), rs.getString("department"));
+                return new Teacher(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("owner_Subject"), rs.getString("department"), rs.getString("email"));
             }
             rs.close();
             conn.close();
@@ -65,7 +65,7 @@ public class TeachersController {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM teachers");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                allTeacher.add(new Teacher(rs.getLong("id"), rs.getString("fname"), rs.getString("lname"), rs.getString("password"), rs.getString("owner_Subject"), rs.getString("department")));
+                allTeacher.add(new Teacher(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("owner_Subject"), rs.getString("department"), rs.getString("email")));
             }
             return allTeacher;
         } catch (SQLException ex) {
@@ -77,13 +77,13 @@ public class TeachersController {
     public boolean addTeacher(Teacher t) {
         conn = BuildConnection.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO TEACHERS (ID, FNAME, LNAME, PASSWORD, owner_Subject, DEPARTMENT) VALUES (?,?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO TEACHERS (ID, FULLNAME, PASSWORD, owner_Subject, DEPARTMENT, EMAIL) VALUES (?,?,?,?,?,?)");
             ps.setLong(1, t.getId());
-            ps.setString(2, t.getUsername());
-            ps.setString(3, t.getLastName());
-            ps.setString(4, t.getPassword());
-            ps.setString(5, t.getOwnerSubject());
-            ps.setString(6, t.getDepartment());
+            ps.setString(2, t.getFullname());
+            ps.setString(3, t.getPassword());
+            ps.setString(4, t.getOwnerSubject());
+            ps.setString(5, t.getDepartment());
+            ps.setString(6, t.getEmail());
             ps.executeUpdate();
 
             return true;

@@ -26,11 +26,11 @@ public class StudentsController {
     public Student getStudentByUsername(String username) {
         conn = BuildConnection.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("SELECT * FROM students WHERE Lower(fname) = ?");
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM students WHERE Lower(fullname) = ?");
             ps.setString(1, username.toLowerCase());
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Student(rs.getLong("id"), rs.getString("fname"), rs.getString("lname"), rs.getString("password"), rs.getString("department"));
+                return new Student(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("syear"), rs.getString("department"), rs.getString("email"));
             }
             rs.close();
             conn.close();
@@ -47,7 +47,7 @@ public class StudentsController {
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Student(rs.getLong("id"), rs.getString("fname"), rs.getString("lname"), rs.getString("password"), rs.getString("department"));
+                return new Student(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("syear"),  rs.getString("department"), rs.getString("email"));
             }
             rs.close();
             conn.close();
@@ -64,7 +64,7 @@ public class StudentsController {
             PreparedStatement ps = conn.prepareStatement("SELECT * FROM students");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                allStudent.add(new Student(rs.getLong("id"), rs.getString("fname"), rs.getString("lname"), rs.getString("password"), rs.getString("department")));
+                allStudent.add(new Student(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("syear"), rs.getString("department"), rs.getString("email")));
             }
             return allStudent;
         } catch (SQLException ex) {
@@ -76,12 +76,13 @@ public class StudentsController {
       public boolean addStudent(Student s) {
         conn = BuildConnection.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO STUDENTS (ID, FNAME, LNAME, PASSWORD, DEPARTMENT) VALUES (?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO STUDENTS (ID, FULLNAME, PASSWORD, SYEAR, DEPARTMENT, EMAIL) VALUES (?,?,?,?,?,?,?)");
             ps.setLong(1, s.getId());
-            ps.setString(2, s.getUsername());
-            ps.setString(3, s.getLastname());
-            ps.setString(4, s.getPassword());
+            ps.setString(2, s.getFullname());
+            ps.setString(3, s.getPassword());
+            ps.setString(4, s.getSyear());
             ps.setString(5, s.getDepartment());
+            ps.setString(6, s.getEmail());
             ps.executeUpdate();
                       
             return true;
@@ -98,8 +99,8 @@ public class StudentsController {
         ArrayList<Student> as = sc.getAllStudent();
         System.out.println(as); 
         
-        Student ss = new Student(123, "test", "mou", "kkk", "llo");
-        sc.addStudent(ss);
-        System.out.println(sc.getStudentById(123));
+       
+        
+        
     }
 }

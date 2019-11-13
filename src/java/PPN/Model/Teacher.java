@@ -11,24 +11,24 @@ package PPN.Model;
  */
 public class Teacher {
     private Long Id;
-    private String username;
-    private String LastName;
+    private String fullname;
     private String password;
     private String ownerSubject;
     private String department;
+    private String email;
     
     
     public Teacher (){
         
     }
 
-    public Teacher(Long Id, String username, String LastName, String password, String ownerSubject, String department) {
+    public Teacher(Long Id, String fullname, String password, String ownerSubject, String department, String email) {
         this.Id = Id;
-        this.username = username;
-        this.LastName = LastName;
+        this.fullname = fullname;
         this.password = password;
         this.ownerSubject = ownerSubject;
         this.department = department;
+        this.email = email;
     }
 
     public Long getId() {
@@ -39,20 +39,12 @@ public class Teacher {
         this.Id = Id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getFullname() {
+        return fullname;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getLastName() {
-        return LastName;
-    }
-
-    public void setLastName(String LastName) {
-        this.LastName = LastName;
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
     }
 
     public String getPassword() {
@@ -79,13 +71,21 @@ public class Teacher {
         this.department = department;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "Teacher{" + "Id=" + Id + ", username=" + username + ", LastName=" + LastName + ", password=" + password + ", ownerSubject=" + ownerSubject + ", department=" + department + '}';
+        return "Teacher{" + "Id=" + Id + ", fullname=" + fullname + ", password=" + password + ", ownerSubject=" + ownerSubject + ", department=" + department + ", email=" + email + '}';
     }
 
     
-    
+
     
     
     

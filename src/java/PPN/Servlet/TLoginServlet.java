@@ -55,7 +55,7 @@ public class TLoginServlet extends HttpServlet {
                  request.setAttribute("message", message);
              }
          }
-         message="Sorry,ID or Password is Incorrect!";
+         message="Sorry, ID or Password is Incorrect!";
          request.setAttribute("message", message);
          getServletContext().getRequestDispatcher("/TLogin.jsp").forward(request, response);
          

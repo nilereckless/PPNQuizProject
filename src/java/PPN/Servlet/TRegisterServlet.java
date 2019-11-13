@@ -32,15 +32,16 @@ public class TRegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String tid = request.getParameter("id");
-        String username = request.getParameter("username");
-        String lastname = request.getParameter("password");
+        String fullname = request.getParameter("fullname");
         String password = request.getParameter("password");
         String subject  = request.getParameter("ownerSubject");
         String department = request.getParameter("department");
+        String email = request.getParameter("email");
+        
         String message  = null;
         
-        if(tid.trim().isEmpty()||username.trim().isEmpty()||lastname.trim().isEmpty()||password.trim().isEmpty()
-                ||subject.trim().isEmpty()||department.trim().isEmpty()){
+        if(tid.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()
+                ||subject.trim().isEmpty()||department.trim().isEmpty()||email.trim().isEmpty()){
             message="Please enter your Information All!";
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/TRegister.jsp").forward(request, response);
@@ -55,7 +56,7 @@ public class TRegisterServlet extends HttpServlet {
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/TRegister.jsp").forward(request, response);
         }else{
-            Teacher newt = new Teacher(idt, username, lastname, password, subject, department);
+            Teacher newt = new Teacher(idt, fullname, password, subject, department, email);
             tc.addTeacher(newt);
             message="Congratulation, Your Register success!";
             request.setAttribute("message", message);

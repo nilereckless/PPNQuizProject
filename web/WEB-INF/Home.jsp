@@ -10,28 +10,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
         <title>Home PPN Quiz</title>
     </head>
     <body>
-        <h1>Welcome PPN Quiz</h1>
+
+
+        <h1>Welcome to PPN Quizzz </h1>
         <br>
-        <h2>Welcome : ${user.username}</h2>
+        <h2>Welcome : ${user.fullname}</h2>
         <%-- ถ้าเป็นนักเรียนจะขึ้นคณะ  --%>
-            <h2><c:if test="${who=='student'}">
-                Department : ${user.department}
-                </c:if></h2>
+        <h2><c:if test="${who=='student'}">
+                Department : ${user.department}<br><br>
+                Year : ${user.syear}<br><br>
+                <h4><a href="Logout">Logout</a></h4>
+            </c:if></h2>
         <h2><c:if test="${who=='teacher'}">
                 Owner Subject : ${user.ownerSubject}<br><br>
-                Department : ${user.department}
-        </c:if></h2>
+                Department : ${user.department}<br><br>
+                <h4><a href="TLogin.jsp">Logout</a></h4>
+            </c:if></h2>
+       
         <hr>
-        <a href="Network">Network Quiz</a>
-        <br><br>
-        <a href="Database">Database Quiz</a>
-        <br><br>
-        <a href="GEN241">GEN241 Quiz</a>
-        <br><br>
-        <a href="Logout">Logout</a>
-        
+
+
+
+
     </body>
 </html>

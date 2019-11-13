@@ -11,18 +11,20 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    <center><body>
         <h1>PPN Quiz For Teacher</h1>
         <h2>${message}</h2>
+        <h4><a href="TRegister.jsp">Register</a></h4>
         <hr>
         <form action="TLogin" method="post">
-            TeacherID : <input type="text" name="id">
+            TeacherID : <input type="text" name="id" maxlength="13">
             <br><br>
             Password  : <input type="password" name="password">
             <br><br>
-            <input type="submit">
-            <a href="TRegister.jsp">Register</a>
+            <input type="submit"><br><br>
+            <a href="Login.jsp">Back to Login Student</a>
             
-        </form>
+            
+        </form></center>
     </body>
 </html>

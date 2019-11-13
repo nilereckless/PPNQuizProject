@@ -32,14 +32,14 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-        String username = request.getParameter("username");
+        String fullname = request.getParameter("fullname");
         String password = request.getParameter("password");
-        String lastname = request.getParameter("lastname");
+        String year     = request.getParameter("year");
         String department = request.getParameter("department");
+        String email    = request.getParameter("email");
         String message = null;
         
-        if(id.trim().isEmpty()||username.trim().isEmpty()||password.trim().isEmpty()||lastname.trim().isEmpty()
-          ||department.trim().isEmpty()){
+        if(id.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||year.trim().isEmpty()||department.trim().isEmpty()|| email.trim().isEmpty()){
             message="Please Enter All your Information!";
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/WEB-INF/Register.jsp").forward(request, response);
@@ -55,7 +55,7 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/WEB-INF/Register.jsp").forward(request, response);
         }else{
-            Student news = new Student(sid, username, lastname, password, department);
+            Student news = new Student(sid, fullname, password, year, department, email);
            sc.addStudent(news);
            message="Congratulation, You register Success!";
            request.setAttribute("message", message);
