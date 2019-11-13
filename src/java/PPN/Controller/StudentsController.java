@@ -76,7 +76,7 @@ public class StudentsController {
       public boolean addStudent(Student s) {
         conn = BuildConnection.getConnection();
         try {
-            PreparedStatement ps = conn.prepareStatement("INSERT INTO STUDENTS (ID, FULLNAME, PASSWORD, SYEAR, DEPARTMENT, EMAIL) VALUES (?,?,?,?,?,?,?)");
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO STUDENTS (ID, FULLNAME, PASSWORD, SYEAR, DEPARTMENT, EMAIL) VALUES (?,?,?,?,?,?)");
             ps.setLong(1, s.getId());
             ps.setString(2, s.getFullname());
             ps.setString(3, s.getPassword());
@@ -98,6 +98,14 @@ public class StudentsController {
         System.out.println(s);
         ArrayList<Student> as = sc.getAllStudent();
         System.out.println(as); 
+        
+        
+        Student s1 = new Student(123, "fullname", "password", "syear", "department", "email");
+        sc.addStudent(s1);
+        System.out.println(sc.getStudentById(123));
+        
+        
+        
         
        
         

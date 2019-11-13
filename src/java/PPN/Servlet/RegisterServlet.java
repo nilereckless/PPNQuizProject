@@ -32,17 +32,20 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-        String fullname = request.getParameter("fullname");
+        String fullname = request.getParameter("firstname")+ " " + request.getParameter("lastname");
+   
         String password = request.getParameter("password");
         String year     = request.getParameter("year");
         String department = request.getParameter("department");
-        String email    = request.getParameter("email");
+       // String email    = request.getParameter("email");
         String message = null;
         
-        if(id.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||year.trim().isEmpty()||department.trim().isEmpty()|| email.trim().isEmpty()){
+       
+        if(id.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||year.trim().isEmpty()||department.trim().isEmpty()
+                ){
             message="Please Enter All your Information!";
             request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/WEB-INF/Register.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
         }
         
         long sid = Long.valueOf(id);
@@ -53,13 +56,13 @@ public class RegisterServlet extends HttpServlet {
         if(s!=null){
             message="Sorry, This ID has registed";
             request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/WEB-INF/Register.jsp").forward(request, response);
+            getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
         }else{
-            Student news = new Student(sid, fullname, password, year, department, email);
+            Student news = new Student(sid, fullname, password, year, department, null);
            sc.addStudent(news);
            message="Congratulation, You register Success!";
            request.setAttribute("message", message);
-           getServletContext().getRequestDispatcher("/WEB-INF/Login.jsp").forward(request, response);          
+           getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);          
         }
         
     }

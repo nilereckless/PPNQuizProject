@@ -17,7 +17,7 @@
         <hr>
         <form action="Register" method="post">
             StudentID : <input type="text" name="id" maxlength="13"><br><br>
-            Firstname : <input type="text" name="username"><br><br>
+            Firstname : <input type="text" name="firstname"><br><br>
             Lastname : <input type="text" name="lastname"><br><br>
             Password : <input type="password" name="password"><br><br>
             Student Year : <input type="number" name="year"><br><br>
