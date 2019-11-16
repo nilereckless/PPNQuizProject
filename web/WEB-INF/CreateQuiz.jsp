@@ -17,7 +17,7 @@
         <br>
         <h2>Welcome : ${user.fullname}</h2>
         <hr><h3>${message}</h3>
-        <c:if test="${who=='teachet'}">
+        <c:if test="${who=='teacher'}">
         <form action="CreateQuiz" method="post">
         Quiz name : <input type="text" name="quizname">
         <br><br>
