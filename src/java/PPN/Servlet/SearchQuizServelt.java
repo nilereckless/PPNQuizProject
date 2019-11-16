@@ -5,10 +5,11 @@
  */
 package PPN.Servlet;
 
-import PPN.Controller.StudentsController;
-import PPN.Model.Student;
+import PPN.Controller.SubjectsController;
+import PPN.Model.Subject;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author theeradonjaroonchon
  */
-public class RegisterServlet extends HttpServlet {
+public class SearchQuizServelt extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,46 +32,20 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String fullname = request.getParameter("firstname")+ " " + request.getParameter("lastname");
-        String password = request.getParameter("password");
-        String confirmpass = request.getParameter("confirmpass");
-        String year     = request.getParameter("year");
-        String department = request.getParameter("department");
-       // String email    = request.getParameter("email");
-        String message = null;
-        
+       String SID = request.getParameter("sid");
+       String message=null; 
+       SubjectsController sc = new SubjectsController();
+       ArrayList<Subject> s = sc.getAllSubject(SID);
        
-        if(id.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||year.trim().isEmpty()||department.trim().isEmpty()
-                ){
-            message="Please Enter All your Information!";
-            request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
-        }
-        
-        long sid = Long.valueOf(id);
-        
-        StudentsController sc = new StudentsController();
-        Student s = sc.getStudentById(sid);
-        
-        if(password!=confirmpass){
-            message="Password doesn't match !!";
-            request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
-        }
-        
-        if(s!=null){
-            message="Sorry, This ID has registed";
-            request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
-        }else{
-           Student news = new Student(sid, fullname, password, year, department, null);
-           sc.addStudent(news);
-           message="Congratulation, You register Success!";
+       if(SID==null||SID.trim().isEmpty()){
+           message="Please insert your DATA";
            request.setAttribute("message", message);
-           getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);          
-        }
-        
+       }else{
+             request.setAttribute("subject", s);
+       }
+       
+     
+       getServletContext().getRequestDispatcher("/WEB-INF/SearchQuiz.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -85,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+      getServletContext().getRequestDispatcher("/WEB-INF/SearchQuiz.jsp").forward(request, response);
     }
 
     /**
