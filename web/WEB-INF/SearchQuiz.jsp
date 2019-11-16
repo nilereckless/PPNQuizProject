@@ -21,11 +21,11 @@
 
         </form>
         <%--${subject}--%>
-        <c:forEach items="${subject}" var="s">
+        <c:forEach items="${quiz}" var="q">
             <div class="card border-primary mb-3" style="max-width: 18rem;">
-                <div class="card-header">${s.name}</div>
+                <div class="card-header">${q.quizName}</div>
                 <div class="card-body text-primary">
-                    <h5 class="card-title">${s.DETAILS}</h5>
+                    <h5 class="card-title">${q.quizDetails}</h5>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
             </div>
