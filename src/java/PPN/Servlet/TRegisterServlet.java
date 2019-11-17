@@ -34,13 +34,14 @@ public class TRegisterServlet extends HttpServlet {
         String tid = request.getParameter("id");
         String fullname = request.getParameter("fullname");
         String password = request.getParameter("password");
+        String confirmpass = request.getParameter("confirmpass");
         String subject  = request.getParameter("ownerSubject");
         String department = request.getParameter("department");
         String email = request.getParameter("email");
         
         String message  = null;
         
-        if(tid.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()
+        if(tid.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||confirmpass.trim().isEmpty()
                 ||subject.trim().isEmpty()||department.trim().isEmpty()||email.trim().isEmpty()){
             message="Please enter your Information All!";
             request.setAttribute("message", message);

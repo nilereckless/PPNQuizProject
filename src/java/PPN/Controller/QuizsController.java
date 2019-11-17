@@ -45,7 +45,7 @@ public class QuizsController {
     public ArrayList<Quiz> getAllQuiz(String description){
         ArrayList<Quiz> q = new ArrayList();
         QuizsController qc = new QuizsController();
-        String query = "SELECT * FROM QUIZ  where Lower(QUIZ_NAME) like ?";    
+        String query = "SELECT * FROM QUIZ  where Lower(SUBJECT_ID) like ?";    
          try {
              conn = BuildConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(query);
@@ -85,5 +85,7 @@ public class QuizsController {
         Quiz q1 = new Quiz("quizName", "quizDetails", "subjectId");
         qc.addQuiz(q1);
         System.out.println(qc.getAllQuiz("quiz"));
+        
+        
     }
 }
