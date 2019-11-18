@@ -35,11 +35,16 @@ public class CreateQuizServlet extends HttpServlet {
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/WEB-INF/CreateQuiz.jsp").forward(request, response);
         }
+        if(qname!=null){
+            message="Sorry, This quiz has already Created!";
+            request.setAttribute("message", message);
+            getServletContext().getRequestDispatcher("/WEB-INF/CreateQuiz.jsp").forward(request, response);
+        }
         SubjectsController sc = new SubjectsController();
         if(!request.getSession().getAttribute("who").equals("teacher")){
             getServletContext().getRequestDispatcher("/WEB-INF/Home.jsp").forward(request, response);
         }
-
+        
         QuizsController qc = new QuizsController();
         Teacher t = (Teacher) request.getSession().getAttribute("user");
         Subject s = sc.getSubjectByT_ID(t.getId());

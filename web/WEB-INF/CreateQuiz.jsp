@@ -10,8 +10,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>PPN Quiz</title>
     </head>
+    
     <body>
         <h1>Create Quiz PPN</h1>
         <br>
@@ -24,6 +25,7 @@
             Owner Subject : ${user.ownerSubject}<br><br>
             Department : ${user.department}<br><br>
             </c:if></h2>
+        <br><br>
         <hr><h3>${message}</h3>
         <c:if test="${who=='teacher'}">          
             <form action="CreateQuiz" method="post">

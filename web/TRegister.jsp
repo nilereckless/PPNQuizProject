@@ -11,14 +11,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
 </script>
-        <title>JSP Page</title>
+        <title>PPN Quiz</title>
+        <script>
+         
+            
+            </script>
     </head>
     <center><body>
         <h1>Register to PPN Quiz For Teacher</h1>
         <h2>${message}</h2>
         <hr>
         <form action="TRegister" method="post">
-            TeacherID : <input type="text" name="id" maxlength="13" required><br><br>
+            TeacherID : <input type="text" name="id" maxlength="4" minlength="4" required><br><br>
             Firstname : <input type="text" name="username" required><br><br>
             Lastname  : <input type="text" name="lastname" required><br><br>
             Password  : <input type="password" name="password" required><br><br>
