@@ -30,6 +30,7 @@ public class StudentsController {
             ps.setString(1, username.toLowerCase());
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
+
                 return new Student(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("syear"), rs.getString("department"));
             }
             rs.close();
@@ -105,11 +106,7 @@ public class StudentsController {
         //sc.addStudent(s2);
        // System.out.println(2344);
         //System.out.println(sc.getStudentById(123));
-        
-        
-        
-        
-       
+
         
         
     }

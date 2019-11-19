@@ -15,6 +15,7 @@ public class Student {
     private String password;
     private String syear;
     private String department;
+
     
     
     public Student(){
@@ -76,8 +77,6 @@ public class Student {
 
     
     
-    
-    
- 
+
     
 }

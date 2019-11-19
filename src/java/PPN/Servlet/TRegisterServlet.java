@@ -58,10 +58,12 @@ public class TRegisterServlet extends HttpServlet {
             getServletContext().getRequestDispatcher("/TRegister.jsp").forward(request, response);
         }else{
             Teacher newt = new Teacher(idt, fullname, password, subject, department);
-            tc.addTeacher(newt);
+             tc.addTeacher(newt);
             message="Congratulation, Your Register success!";
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/TLogin.jsp").forward(request, response);
+
+        
         }
     }
 
@@ -102,6 +104,7 @@ public class TRegisterServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
-
+    }
 }
+
+

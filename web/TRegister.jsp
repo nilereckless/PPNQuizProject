@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<<<<<<< HEAD
         <title>PPN Quiz</title>
        
     </head>
@@ -19,6 +20,23 @@
         <form action="TRegister" method="post">
             TeacherID : <input type="text" name="id" maxlength="4" minlength="4" required><br><br>
             Firstname : <input type="text" name="firstname" required><br><br>
+=======
+    
+</script>
+        <title>PPN Quiz</title>
+        <script>
+         
+            
+            </script>
+    </head>
+    <center><body>
+        <h1>Register to PPN Quiz For Teacher</h1>
+        <h2>${message}</h2>
+        <hr>
+        <form action="TRegister" method="post">
+            TeacherID : <input type="text" name="id" maxlength="4" minlength="4" required><br><br>
+            Firstname : <input type="text" name="username" required><br><br>
+>>>>>>> origin/master
             Lastname  : <input type="text" name="lastname" required><br><br>
             Password  : <input type="password" name="password" required><br><br>
             Confirm Password : <input type="password" name="confirmpass" required><br><br>

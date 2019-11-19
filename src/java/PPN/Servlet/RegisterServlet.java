@@ -41,6 +41,7 @@ public class RegisterServlet extends HttpServlet {
         String message = null;
         
        
+
         if(id.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||year.trim().isEmpty()
                 ||department.trim().isEmpty()){
             message="Please Enter All your Information!";
@@ -63,9 +64,10 @@ public class RegisterServlet extends HttpServlet {
            sc.addStudent(news);
            message="Congratulation, You register Success!";
            request.setAttribute("message", message);
-           getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);          
-        }
+           getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);      
+
         
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

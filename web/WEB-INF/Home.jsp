@@ -37,6 +37,9 @@
         <a href="SearchQuiz">Search Quiz</a>
         <br><br>
         <a href="CreateQuiz">Create Quiz</a>
+        <a href="/PPNQuizProject/SearchQuiz">Search Quiz</a>
+        <br><br>
+        <a href="/PPNQuizProject/CreateQuiz">Create Quiz</a>
 
 
     </body>
