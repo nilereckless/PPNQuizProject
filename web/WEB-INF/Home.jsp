@@ -42,7 +42,9 @@
         <br><br>
         <a href="SearchQuiz">Search Quiz</a>
         <br><br>
+        <c:if test="${who=='teacher'}">
         <a href="CreateQuiz">Create Quiz</a>
+        </c:if>
         <br><br>
 
 

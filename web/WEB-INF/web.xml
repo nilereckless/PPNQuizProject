@@ -29,8 +29,8 @@
         <servlet-class>PPN.Servlet.TLoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>SearchQuizServelt</servlet-name>
-        <servlet-class>PPN.Servlet.SearchQuizServelt</servlet-class>
+        <servlet-name>SearchQuizServlet</servlet-name>
+        <servlet-class>PPN.Servlet.SearchQuizServlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CreateQuizServlet</servlet-name>
@@ -69,7 +69,7 @@
         <url-pattern>/TLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>SearchQuizServelt</servlet-name>
+        <servlet-name>SearchQuizServlet</servlet-name>
         <url-pattern>/SearchQuiz</url-pattern>
     </servlet-mapping>
     <servlet-mapping>

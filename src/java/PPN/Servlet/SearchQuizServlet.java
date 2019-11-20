@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author theeradonjaroonchon
  */
-public class SearchQuizServelt extends HttpServlet {
+public class SearchQuizServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
