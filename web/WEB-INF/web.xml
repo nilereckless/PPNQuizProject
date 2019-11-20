@@ -36,6 +36,14 @@
         <servlet-name>CreateQuizServlet</servlet-name>
         <servlet-class>PPN.Servlet.CreateQuizServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>EditProfileServlet</servlet-name>
+        <servlet-class>PPN.Servlet.EditProfileServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditNameServlet</servlet-name>
+        <servlet-class>PPN.Servlet.EditNameServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
         <url-pattern>/Login</url-pattern>
@@ -67,6 +75,14 @@
     <servlet-mapping>
         <servlet-name>CreateQuizServlet</servlet-name>
         <url-pattern>/CreateQuiz</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditProfileServlet</servlet-name>
+        <url-pattern>/EditProfile</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditNameServlet</servlet-name>
+        <url-pattern>/EditName</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

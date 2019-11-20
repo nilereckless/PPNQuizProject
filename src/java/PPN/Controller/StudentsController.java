@@ -48,7 +48,7 @@ public class StudentsController {
             ps.setLong(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Student(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("syear"),  rs.getString("department"));
+                return new Student(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("syear"), rs.getString("department"));
             }
             rs.close();
             conn.close();
@@ -74,7 +74,7 @@ public class StudentsController {
         return null;
     }
 
-      public boolean addStudent(Student s) {
+    public boolean addStudent(Student s) {
         conn = BuildConnection.getConnection();
         try {
             PreparedStatement ps = conn.prepareStatement("INSERT INTO STUDENTS (ID, FULLNAME, PASSWORD, SYEAR, DEPARTMENT) VALUES (?,?,?,?,?)");
@@ -83,9 +83,9 @@ public class StudentsController {
             ps.setString(3, s.getPassword());
             ps.setString(4, s.getSyear());
             ps.setString(5, s.getDepartment());
-           
+
             ps.executeUpdate();
-                      
+
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(StudentsController.class.getName()).log(Level.SEVERE, null, ex);
@@ -93,21 +93,30 @@ public class StudentsController {
         return false;
     }
 
+    public boolean UpdateStudentInformation(Student s) {
+        StudentsController sc = new StudentsController();
+        conn = BuildConnection.getConnection();
+        try {
+            Student s1 = sc.getStudentById(s.getId());
+            PreparedStatement ps = conn.prepareStatement("UPDATE STUDENTS set fullname=?,password=? WHERE id = ?");
+            ps.setString(1, s.getFullname());
+            ps.setString(2, s.getPassword());
+            ps.setLong(3, s.getId());
+
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(StudentsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+
+    }
+
     public static void main(String[] args) {
         StudentsController sc = new StudentsController();
         Student s = sc.getStudentById(Long.valueOf("61130500054"));
-        System.out.println(s);
-        ArrayList<Student> as = sc.getAllStudent();
-        System.out.println(as); 
-        
-      // Student s2 = new Student(2344, "me", "word", "ar", "tment");
-        //Student s1 = new Student(123, "fullname", "password", "syear", "department");
-       // sc.addStudent(s1);
-        //sc.addStudent(s2);
-       // System.out.println(2344);
-        //System.out.println(sc.getStudentById(123));
+        s.setFullname("THEERADON JAROONCHON");
+        System.out.println(sc.UpdateStudentInformation(s));
 
-        
-        
     }
 }

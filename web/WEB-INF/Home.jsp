@@ -14,7 +14,7 @@
         <title>Home PPN Quiz</title>
     </head>
     <body>
-        
+
 
 
         <h1>Welcome to PPN Quizzz </h1>
@@ -24,22 +24,26 @@
         <h2><c:if test="${who=='student'}">
                 Department : ${user.department}<br><br>
                 Year : ${user.syear}<br><br>
-                <h4><a href="Logout">Logout</a></h4>
+        <h4><a href="Logout">Logout</a></h4>
             </c:if></h2>
         <h2><c:if test="${who=='teacher'}">
                 Owner Subject : ${user.ownerSubject}<br><br>
                 Department : ${user.department}<br><br>
                 <h4><a href="TLogin.jsp">Logout</a></h4>
             </c:if></h2>
-       
-        <hr>
 
+        <hr>
+        
+     
+
+      
+            <a href="EditProfile">My Account</a>
+      
+        <br><br>
         <a href="SearchQuiz">Search Quiz</a>
         <br><br>
         <a href="CreateQuiz">Create Quiz</a>
-        <a href="/PPNQuizProject/SearchQuiz">Search Quiz</a>
         <br><br>
-        <a href="/PPNQuizProject/CreateQuiz">Create Quiz</a>
 
 
     </body>

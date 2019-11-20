@@ -31,7 +31,7 @@ public class TeachersController {
             ps.setString(1, username.toLowerCase());
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Teacher(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("ownerSubject"), rs.getString("department"));
+                return new Teacher(rs.getLong("id"), rs.getString("fullname"), rs.getString("password"), rs.getString("owner_Subject"), rs.getString("department"));
             }
             rs.close();
             conn.close();
@@ -92,19 +92,40 @@ public class TeachersController {
         }
         return false;
     }
+    
+    public boolean UpdateTeacherInformation(Teacher t){
+        TeachersController tc = new TeachersController();
+        conn = BuildConnection.getConnection();        
+        try {
+            Teacher t1 = tc.getTeacherById(t.getId());
+            PreparedStatement ps = conn.prepareStatement("UPDATE TEACHERS set fullname=?,password=?,owner_Subject=? where id=?");
+            ps.setString(1, t.getFullname());
+            ps.setString(2, t.getPassword());
+            ps.setString(3, t.getOwnerSubject());
+            ps.setLong(4, t.getId());
+            ps.executeUpdate();
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(TeachersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 
     public static void main(String[] args) {
         TeachersController tc = new TeachersController();
         Teacher t = tc.getTeacherById(Long.valueOf("1505"));
-        System.out.println(t);
-        ArrayList<Teacher> tt = tc.getAllTeacher();
-        System.out.println(tt);
+        //System.out.println(t);
+        //ArrayList<Teacher> tt = tc.getAllTeacher();
+        //System.out.println(tt);
 
         //Teacher t1 = new Teacher(Long.MIN_VALUE, fullname, password, ownerSubject, department)
         //Teacher t2 = new Teacher(Long.MIN_VALUE, fullname, password, ownerSubject, department)
-        Teacher t4 = new Teacher(4545, "fullname", "password", "ownerSubject", "department");
-        tc.addTeacher(t4);
-        System.out.println(tc.getTeacherById(4545));
+        Teacher t4 = tc.getTeacherByUsername("fullname");
+        //tc.addTeacher(t4);
+         t.setPassword("HOT");
+        tc.UpdateTeacherInformation(t4);
+       
+        System.out.println(t.toString());
 
     }
 }
