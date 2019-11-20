@@ -18,8 +18,8 @@
         <hr>
         <form action="TRegister" method="post">
             TeacherID : <input type="text" name="id" maxlength="4" minlength="4" required><br><br>
-            Firstname : <input type="text" name="username" required><br><br>
-            Lastname  : <input type="text" name="lastname" required><br><br>
+            Yourname : <input type="text" name="fullname" required><br><br>
+            <%--Lastname  : <input type="text" name="lastname" required><br><br>--%>
             Password  : <input type="password" name="password" required><br><br>
             Confirm Password : <input type="password" name="confirmpass" required><br><br>
             Owner Subject : <input type="text" name="ownerSubject" required><br><br>

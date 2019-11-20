@@ -32,7 +32,7 @@ public class RegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String id = request.getParameter("id");
-        String fullname = request.getParameter("firstname")+ " " + request.getParameter("lastname");
+        String fullname = request.getParameter("fullname");  //+ " " + request.getParemeter("lastname")
         String password = request.getParameter("password");
         String confirmpass = request.getParameter("confirmpass");
         String year     = request.getParameter("year");

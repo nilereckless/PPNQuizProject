@@ -33,9 +33,9 @@ public class EditNameServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String Oname = request.getParameter("ofirstname") + " " + request.getParameter("olastname");
-        String Nname = request.getParameter("nfirstname") + " " + request.getParameter("nlastname");
-        String Cname = request.getParameter("cfirstname") + " " + request.getParameter("clastname");
+        String Oname = request.getParameter("ofullname"); //+ " " + request.getParameter("olastname");
+        String Nname = request.getParameter("nfullname"); //+ " " + request.getParameter("nlastname");
+        String Cname = request.getParameter("cfullname"); //+ " " + request.getParameter("clastname");
         
         String message = null;
         

@@ -32,7 +32,7 @@ public class TRegisterServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String tid = request.getParameter("id");
-        String fullname = request.getParameter("firstname")+" "+ request.getParameter("lastname");
+        String fullname = request.getParameter("fullname");  //+" "+ request.getParameter("lastname");
         String password = request.getParameter("password");
         String confirmpass = request.getParameter("confirmpass");
         String subject  = request.getParameter("ownerSubject");

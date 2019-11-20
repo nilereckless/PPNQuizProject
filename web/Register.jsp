@@ -18,8 +18,8 @@
     
             <form action="Register" method="post">
                 StudentID : <input type="number" name="id" minlength="13" maxlength="13" required><br><br>
-                Firstname : <input type="text" name="firstname" required><br><br>
-                Lastname : <input type="text" name="lastname" required><br><br>
+                Yourname : <input type="text" name="fullname" required><br><br>
+                <%--<Lastname : <input type="text" name="lastname" required><br><br>--%>
                 Password : <input type="password" name="password" required><br><br>
                 Confirm Password : <input type="password" name="confrimpass" required><br><br>
                 Student Year : <input type="number" name="year" required><br><br>

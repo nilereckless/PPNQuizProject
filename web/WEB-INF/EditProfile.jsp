@@ -25,12 +25,12 @@
         </form>
         <br><br><br>
         <form action="EditName" method="post">
-            Old Name : <input type="text" name="ofirstname"><br><br>
-            Old Lastname : <input type="text" name="olastname"><br><br>
-            New Name : <input type="text" name="nfirstname"><br><br>
-            New Lastname : <input type="text" name="nlastname"><br><br>
-            Confirm Name : <input type="text" name="cfirstname"><br><br>
-            Confirm Lastname : <input type="text"name="clastname"><br><br>
+            Old Name : <input type="text" name="ofullname"><br><br>
+            <%--Old Lastname : <input type="text" name="olastname"><br><br>--%>
+            New Name : <input type="text" name="nfullname"><br><br>
+            <%--New Lastname : <input type="text" name="nlastname"><br><br>--%>
+            Confirm Name : <input type="text" name="cfullname"><br><br>
+            <%--Confirm Lastname : <input type="text"name="clastname"><br><br>--%>
             
             <input type="submit" value="Update Name">
         </form>
