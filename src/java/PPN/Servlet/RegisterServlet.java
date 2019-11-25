@@ -60,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
         }else{
-           Student news = new Student(sid, fullname, password, year, department);
+           Student news = new Student(sid, fullname, password, year, department, year);
            sc.addStudent(news);
            message="Congratulation, You register Success!";
            request.setAttribute("message", message);

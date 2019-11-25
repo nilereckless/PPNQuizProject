@@ -16,6 +16,7 @@ public class Teacher {
     private String password;
     private String ownerSubject;
     private String department;
+    private String email;
     
     
     
@@ -23,12 +24,13 @@ public class Teacher {
         
     }
 
-    public Teacher(long Id, String fullname, String password, String ownerSubject, String department) {
+    public Teacher(long Id, String fullname, String password, String ownerSubject, String department, String email) {
         this.Id = Id;
         this.fullname = fullname;
         this.password = password;
         this.ownerSubject = ownerSubject;
         this.department = department;
+        this.email = email;
     }
 
     public long getId() {
@@ -71,10 +73,20 @@ public class Teacher {
         this.department = department;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
-        return "Teacher{" + "Id=" + Id + ", fullname=" + fullname + ", password=" + password + ", ownerSubject=" + ownerSubject + ", department=" + department + '}';
+        return "Teacher{" + "Id=" + Id + ", fullname=" + fullname + ", password=" + password + ", ownerSubject=" + ownerSubject + ", department=" + department + ", email=" + email + '}';
     }
+
+   
 
     
 

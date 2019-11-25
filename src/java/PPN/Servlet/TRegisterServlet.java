@@ -57,7 +57,7 @@ public class TRegisterServlet extends HttpServlet {
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/TRegister.jsp").forward(request, response);
         }else{
-            Teacher newt = new Teacher(idt, fullname, password, subject, department);
+            Teacher newt = new Teacher(idt, fullname, password, subject, department, tid);
              tc.addTeacher(newt);
             message="Congratulation, Your Register success!";
             request.setAttribute("message", message);
