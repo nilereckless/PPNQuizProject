@@ -22,6 +22,7 @@
                 <%--<Lastname : <input type="text" name="lastname" required><br><br>--%>
                 Password : <input type="password" name="password" required><br><br>
                 Confirm Password : <input type="password" name="confrimpass" required><br><br>
+                G-mail : <input type="text" name="email"><br><br>
                 Student Year : <input type="number" name="year" required><br><br>
                 Department : <br><br>
                 <input type="radio" name="department" value="Information Technology">Information Technology<br><br> 

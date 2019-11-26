@@ -10,23 +10,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>PPN Quiz </title>
-        <script>
-            var currentDate = new Date(),
-                    day = currentDate.getDate(),
-                    month = currentDate.getMonth() + 1,
-                    year = currentDate.getFullYear();
-            document.write(day + "/" + month + "/" + year)
-            
-            var currentTime = new Date(),
-                    hours = currentTime.getHours(),
-                    minutes = currentTime.getMinutes();
-
-            if (minutes < 10) {
-                minutes = "0" + minutes;
-            }
-
-            document.write(hours + ":" + minutes)
-        </script>
     </head>  
     <center><body>
             <h1>PPN Quiz for SIT</h1>
@@ -42,6 +25,7 @@
                 <br><br>
 
             </form>
+            <a href="ForgotPassword.jsp">Forgot Password ?</a>
             <a href="Register.jsp">Register</a>
         </body></center>
 </html>

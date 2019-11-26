@@ -22,6 +22,7 @@
             Password  : <input type="password" name="password">
             <br><br>
             <input type="submit"><br><br>
+            <a href="ForgotPassword.jsp">Forgot Password ?</a>
             <a href="Login.jsp">Back to Login Student</a>
             
             

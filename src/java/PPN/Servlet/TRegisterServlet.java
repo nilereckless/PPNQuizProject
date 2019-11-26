@@ -37,12 +37,12 @@ public class TRegisterServlet extends HttpServlet {
         String confirmpass = request.getParameter("confirmpass");
         String subject  = request.getParameter("ownerSubject");
         String department = request.getParameter("department");
-        //String email = request.getParameter("email");
+        String email = request.getParameter("email");
         
         String message  = null;
         
         if(tid.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||confirmpass.trim().isEmpty()
-                ||subject.trim().isEmpty()||department.trim().isEmpty()){
+                ||subject.trim().isEmpty()||department.trim().isEmpty()||email.trim().isEmpty()){
             message="Please enter your Information All!";
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/TRegister.jsp").forward(request, response);
@@ -57,7 +57,7 @@ public class TRegisterServlet extends HttpServlet {
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/TRegister.jsp").forward(request, response);
         }else{
-            Teacher newt = new Teacher(idt, fullname, password, subject, department, tid);
+            Teacher newt = new Teacher(idt, fullname, password, subject, department, email);
              tc.addTeacher(newt);
             message="Congratulation, Your Register success!";
             request.setAttribute("message", message);

@@ -37,13 +37,13 @@ public class RegisterServlet extends HttpServlet {
         String confirmpass = request.getParameter("confirmpass");
         String year     = request.getParameter("year");
         String department = request.getParameter("department");
-       // String email    = request.getParameter("email");
+        String email    = request.getParameter("email");
         String message = null;
         
        
 
         if(id.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||year.trim().isEmpty()
-                ||department.trim().isEmpty()){
+                ||department.trim().isEmpty()||email.trim().isEmpty()){
             message="Please Enter All your Information!";
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
@@ -60,7 +60,7 @@ public class RegisterServlet extends HttpServlet {
             request.setAttribute("message", message);
             getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
         }else{
-           Student news = new Student(sid, fullname, password, year, department, year);
+           Student news = new Student(sid, fullname, password, year, department, email);
            sc.addStudent(news);
            message="Congratulation, You register Success!";
            request.setAttribute("message", message);
