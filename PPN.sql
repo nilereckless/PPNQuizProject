@@ -1,4 +1,4 @@
-/* 
+C/* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -61,5 +61,7 @@ CREATE TABLE CHOICE(
      CHOICE_ANSWER VARCHAR(25) DEFAULT 'FALSE' NOT NULL,
      PRIMARY KEY (CHOICE_ID)
 );
+
+
 
 
