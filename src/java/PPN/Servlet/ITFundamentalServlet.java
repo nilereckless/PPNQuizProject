@@ -5,8 +5,6 @@
  */
 package PPN.Servlet;
 
-import PPN.Controller.StudentsController;
-import PPN.Model.Student;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author theeradonjaroonchon
  */
-public class RegisterServlet extends HttpServlet {
+public class ITFundamentalServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -31,42 +29,7 @@ public class RegisterServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String id = request.getParameter("id");
-        String fullname = request.getParameter("fullname");  //+ " " + request.getParemeter("lastname")
-        String password = request.getParameter("password");
-        String confirmpass = request.getParameter("confirmpass");
-        String year     = request.getParameter("year");
-        String department = request.getParameter("department");
-        String email    = request.getParameter("email");
-        String message = null;
-        
-       
-
-        if(id.trim().isEmpty()||fullname.trim().isEmpty()||password.trim().isEmpty()||year.trim().isEmpty()
-                ||department.trim().isEmpty()||email.trim().isEmpty()){
-            message="Please Enter All your Information!";
-            request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
-        }
-        
-        long sid = Long.valueOf(id);
-        
-        StudentsController sc = new StudentsController();
-        Student s = sc.getStudentById(sid);
-      
-        
-        if(s!=null){
-            message="Sorry, This ID has already registed";
-            request.setAttribute("message", message);
-            getServletContext().getRequestDispatcher("/Register.jsp").forward(request, response);
-        }else{
-           Student news = new Student(sid, fullname, password, year, department, email);
-           sc.addStudent(news);
-           message="Congratulation, You register Success!";
-           request.setAttribute("message", message);
-           getServletContext().getRequestDispatcher("/Login.jsp").forward(request, response);      
-        
-        }
+       getServletContext().getRequestDispatcher("/WEB-INF/ITFundamental.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

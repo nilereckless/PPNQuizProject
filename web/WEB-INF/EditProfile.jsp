@@ -96,7 +96,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-sm bg-secondary navbar-dark fixed-top">
-            <a class="navbar-brand" href="Home.jsp">
+            <a class="navbar-brand" href="Home">
                     <img src= "./Picture/Logo.svg" alt="logo" style="width:40px; padding-top: 10px ; margin-left:  10px ">
                 </a>
                 <span class="navbar-text" style="padding-top: 15px ; margin-left:5px; font-family: 'Alatsi', sans-serif;float: left;  font-size:22px ; color: whitesmoke;">

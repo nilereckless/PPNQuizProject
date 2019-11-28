@@ -42,7 +42,7 @@
     <body>
     <center>
         <nav class="navbar navbar-expand-sm bg-secondary navbar-dark fixed-top">
-            <a class="navbar-brand" href="Home.jsp">
+            <a class="navbar-brand" href="Home">
                 <img src= "./Picture/Logo.svg" alt="logo" style="width:40px; padding-top: 10px ; margin-left:  10px ">
             </a>
             <span class="navbar-text" style="padding-top: 15px ; margin-left:5px; font-family: 'Alatsi', sans-serif;float: left;  font-size:22px ; color: whitesmoke;">
@@ -86,7 +86,7 @@
         <h1>Welcome to PPN Quizzz </h1>
         <h2>Welcome : ${user.fullname}</h2>
         <br>
-        <a href="FilterDepartment"> List all Quizs to do</a> <br>
+        
         <h2><c:if test="${who=='student'}">
                 Department : ${user.department}<br><br>
                 Year : ${user.syear}<br><br>
@@ -97,13 +97,16 @@
                 Department : ${user.department}<br><br>
                 <h4><a href="TLogin.jsp">Logout</a></h4>
             </c:if></h2>
+        <%--<a href="FilterDepartment"> List all Quizs to do</a> <br>--%>
 
         <hr> <a href="SearchQuiz"><button type="button" class="btn btn-outline-success"> Let's get Search Quiz</button></a>
         <br><br>
         <c:if test="${who=='teacher'}">
             <a href="CreateQuiz">Create Quiz</a>
         </c:if>
-
+        <c:if test="${who=='student'}">
+            <a href="FilterDepartment"><button type="button" class="btn-outline-success">Your Quiz</button></a><br><br>
+        </c:if>
         <a href="EditProfile"><button type="button" class="btn btn-outline-dark">Go to My Account</button></a>
 
 

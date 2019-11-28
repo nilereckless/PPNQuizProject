@@ -65,7 +65,7 @@
         <form action="SearchQuiz" method="post">
             <p style="font-size: 30px;">Search Quiz</p>  <br>
             <input type="text" style="height: 35px; margin-top: 0px;margin-right: 15px;" name="sid">
-            <button type="button" class="btn btn-primary">Search</button>
+            <input type="submit" value="Search">
 
         </form>
         <%--${subject}--%>

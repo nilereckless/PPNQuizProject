@@ -50,7 +50,7 @@
                 <h4><a href="TRegister.jsp">Register</a></h4>
                 <hr>
                 <form action="TLogin" method="post">
-                    TeacherID : <input type="text" name="id" maxlength="13">
+                    TeacherID : <input type="text" name="id" minlength="4" maxlength="4">
                     <br><br>
                     Password  : <input type="password" name="password">
                     <br><br>

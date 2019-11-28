@@ -83,19 +83,16 @@ public class ForgotPasswordServlet extends HttpServlet {
         Student s = sc.getStudentById(id);
         if (s != null) {
             ms.mail("Your password is " + s.getPassword(), s.getEmail());
-
             request.setAttribute("msg", "Check you mail, we send your password to your mail.");
             getServletContext().getRequestDispatcher("/ForgotPassword.jsp").forward(request, response);
         } else {
             TeachersController tc = new TeachersController();
             Teacher t = tc.getTeacherById(id);
             if (t != null) {
-                ms.mail("Your password is " + s.getPassword(), s.getEmail());
-
+                ms.mail("Your password is " + t.getPassword(), t.getEmail());
                 request.setAttribute("msg", "Check you mail, we send your password to you mail.");
                 getServletContext().getRequestDispatcher("/ForgotPassword.jsp").forward(request, response);
             } else {
-
                 request.setAttribute("msg", "Maybe you still have not register.");
                 getServletContext().getRequestDispatcher("/ForgotPassword.jsp").forward(request, response);
             }

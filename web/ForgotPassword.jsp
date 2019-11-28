@@ -48,8 +48,9 @@
                      <h1>  Forget Your Password</h1><br>
             ${msg}
         <form action="ForgotPassword" method="post">
-            Fill your E-mail/ID: <input type="text" name="who" autocomplete="off"><br><br>         
-        <button type="button" class="btn btn-success">Submit</button><br>
+            Fill your E-mail/ID: <input type="text" name="who" autocomplete="off"><br><br> 
+            <input type="submit" >
+        <%--<button type="button" class="btn btn-success">Submit</button><br>--%>
         </form>
         </body></center>
 </html>
